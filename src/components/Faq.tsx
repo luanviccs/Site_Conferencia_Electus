@@ -3,6 +3,7 @@ import { eventData } from "../data/event";
 import Reveal from "./Reveal";
 import TicketButton from "./TicketButton";
 /**
+ * Título e texto centralizados no topo; abaixo, a lista centralizada na página (cada pergunta alinhada à esquerda dentro da lista, para leitura).
  * Acordeão acessível: botão com aria-expanded/aria-controls, painel com role="region".
  * Painel fechado fica "inert" (links internos não recebem foco). Altura animada via CSS (grid 0fr → 1fr).
  */
@@ -12,16 +13,16 @@ export default function Faq() {
   const uid = useId();
   return (
     <section id="duvidas" className="section">
-      <div className="wrap grid gap-12 lg:grid-cols-12 lg:gap-x-16">
-        <Reveal className="lg:col-span-5">
-          <p className="eyebrow">Dúvidas</p>
-          <h2 className="h-section mt-6 lg:text-[min(5.6vw,5.75rem)]">Dúvidas frequentes</h2>
-          <p className="lede mt-6 max-w-[30ch]">
+      <div className="wrap grid gap-12">
+        <Reveal className="mx-auto max-w-3xl text-center">
+          <p className="eyebrow eyebrow-center">Dúvidas</p>
+          <h2 className="h-section mt-6">Dúvidas frequentes</h2>
+          <p className="lede mx-auto mt-6 max-w-[36ch]">
             Ficou alguma pergunta? Fale com o Electus no Instagram,{" "}
             <a href={instagram.url} target="_blank" rel="noopener noreferrer" className="link-line text-paper hover:text-orange">{instagram.handle}<span className="sr-only"> (abre em nova aba)</span></a>.
           </p>
         </Reveal>
-        <Reveal className="lg:col-span-7">
+        <Reveal className="mx-auto w-full max-w-3xl">
           <ul className="border-b border-paper/15">
             {faq.map((f, i) => {
               const isOpen = open === i;

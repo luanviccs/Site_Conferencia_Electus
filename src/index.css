@@ -8,8 +8,9 @@
   font-weight: 400; font-style: normal; font-display: swap;
   size-adjust: 70%; ascent-override: 100%; descent-override: 0%; line-gap-override: 0%; }
 @theme {
-  --color-ink: #07080d; --color-deep: #0a1030; --color-night: #0b1445; --color-blue: #2340ff;
-  --color-orange: #ff5a1f; --color-paper: #f3f0e8; --color-mute: #8b8e99;
+  /* Cores oficiais: laranja #FFA800, azul #18C1FF, branco #FFFFFF sobre preto uniforme. blue e sky = o mesmo azul oficial. */
+  --color-ink: #000000; --color-deep: #000000; --color-night: #000000; --color-blue: #18C1FF; --color-sky: #18C1FF;
+  --color-orange: #FFA800; --color-paper: #FFFFFF; --color-mute: rgb(255 255 255 / .55);
   /* Impacto (títulos), leitura (texto) e um acento editorial em itálico, usado com parcimônia */
   --font-display: "Big Shoulders Display", Impact, sans-serif;
   --font-pixel: "Our Arcade Games", "Big Shoulders Display", Impact, sans-serif;
@@ -27,9 +28,6 @@
   img { max-width: 100%; }
 }
 
-/* grain sutil (SVG inline, sem requisição) */
-body::after { content: ""; position: fixed; inset: 0; z-index: 90; pointer-events: none; opacity: .05;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
 
 @layer components {
   /* Container único: mesma largura máxima e mesmas margens laterais em todas as seções */
@@ -45,12 +43,19 @@ body::after { content: ""; position: fixed; inset: 0; z-index: 90; pointer-event
   .eyebrow { display: flex; align-items: center; gap: .75rem; font-family: var(--font-cond); font-weight: 800;
     font-size: 1rem; letter-spacing: .2em; text-transform: uppercase; color: var(--color-orange); }
   .eyebrow::before { content: ""; width: 1.75rem; height: 2px; background: currentColor; flex: none; }
+  /* traço em duas cores (sem mistura no meio, que geraria um tom fora da paleta) */
+  .eyebrow::before { background: linear-gradient(90deg, var(--color-sky) 50%, var(--color-orange) 50%); }
+  /* versão centralizada: traço espelhado dos dois lados, para o rótulo ficar simétrico */
+  .eyebrow-center { justify-content: center; text-align: center; }
+  .eyebrow-center::after { content: ""; width: 1.75rem; height: 2px; flex: none;
+    background: linear-gradient(90deg, var(--color-orange) 50%, var(--color-sky) 50%); }
   /* Rótulo de dado (dia, local, número): legível em tamanho pequeno */
   .label { font-family: var(--font-cond); font-weight: 800; font-size: .9375rem; letter-spacing: .18em;
-    text-transform: uppercase; color: rgb(243 240 232 / .62); }
+    text-transform: uppercase; color: rgb(255 255 255 / .62); }
   .h-section { font-family: var(--font-display); font-weight: 900; text-transform: uppercase; line-height: .9;
-    letter-spacing: -.005em; font-size: clamp(2.75rem, 1.4rem + 5.6vw, 7rem); text-wrap: balance; }
-  .lede { font-size: clamp(1.0625rem, .98rem + .35vw, 1.3125rem); line-height: 1.55; color: rgb(243 240 232 / .78); text-wrap: pretty; }
+    letter-spacing: -.005em; font-size: clamp(2.75rem, 1.4rem + 5.6vw, 7rem); text-wrap: balance;
+    background: linear-gradient(95deg, #FFFFFF 0%, #FFFFFF 38%, #18C1FF 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .lede { font-size: clamp(1.0625rem, .98rem + .35vw, 1.3125rem); line-height: 1.55; color: rgb(255 255 255 / .78); text-wrap: pretty; }
 
   /* Botões: retos, borda de 2px, área de toque >= 48px; feedback discreto de cor, elevação e brilho */
   .btn { position: relative; display: inline-flex; align-items: center; justify-content: center; gap: .65rem; min-height: 3.25rem;
@@ -61,10 +66,10 @@ body::after { content: ""; position: fixed; inset: 0; z-index: 90; pointer-event
   .btn:hover .arrow, .btn:focus-visible .arrow { transform: translate(3px, -3px); }
   .btn:active { transform: translateY(1px) scale(.99); }
   .btn-primary { background: var(--color-orange); border-color: var(--color-orange); color: var(--color-ink); }
-  .btn-primary:hover { background: #ff6c35; border-color: #ff6c35; transform: translateY(-2px);
-    box-shadow: 0 14px 32px -14px rgb(255 90 31 / .85); }
-  .btn-ghost { color: var(--color-paper); border-color: rgb(243 240 232 / .4); }
-  .btn-ghost:hover { border-color: var(--color-paper); background: rgb(243 240 232 / .08); }
+  .btn-primary:hover { transform: translateY(-2px);
+    box-shadow: 0 14px 32px -14px rgb(255 168 0 / .75); }
+  .btn-ghost { color: var(--color-paper); border-color: rgb(255 255 255 / .4); }
+  .btn-ghost:hover { border-color: var(--color-paper); background: rgb(255 255 255 / .08); }
   .btn-sm { min-height: 2.75rem; padding: .55rem 1rem; font-size: 1rem; }
   .btn-lg { min-height: 3.75rem; padding: 1rem 2rem; font-size: 1.3rem; }
 
@@ -93,7 +98,7 @@ body::after { content: ""; position: fixed; inset: 0; z-index: 90; pointer-event
 .reveal-photo.in { opacity: 1; }
 .reveal-photo.in img, .reveal-photo.in video { transform: none; }
 
-.tick { animation: tick .35s ease-out; } @keyframes tick { from { transform: translateY(-12%); opacity: .2; } }
+.tick { color: var(--color-sky); animation: tick .35s ease-out; } @keyframes tick { from { transform: translateY(-12%); opacity: .2; } }
 .marquee { animation: marquee 48s linear infinite; } @keyframes marquee { to { transform: translateX(-50%); } }
 .marquee-wrap:hover .marquee { animation-play-state: paused; }
 
@@ -123,33 +128,15 @@ body::after { content: ""; position: fixed; inset: 0; z-index: 90; pointer-event
 }
 
 /* Cromado: gradiente metálico recortado no texto (assinatura do wordmark) */
-.chrome { background: linear-gradient(180deg,#fff 0%,#d6ebff 18%,#5b84ff 40%,#0a1250 54%,#7fb8ff 64%,#fff 76%,#ffb184 90%,#ff5a1f 100%);
-  -webkit-background-clip: text; background-clip: text; color: transparent; filter: drop-shadow(0 0 22px rgba(35,64,255,.4)); }
+.chrome { background: linear-gradient(180deg,#FFFFFF 0%,#FFFFFF 22%,#18C1FF 72%,#18C1FF 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent; filter: drop-shadow(0 0 22px rgb(24 193 255 / .3)); }
 
 /* Hero: malha azul granulada com uma única fonte de calor (laranja) atrás da foto; translúcida para o vídeo de fundo
    respirar por baixo; termina no tom de base da página */
-.mesh-blue { background:
-  radial-gradient(38% 32% at 74% 62%, rgba(255,90,31,.38), transparent 72%),
-  radial-gradient(26% 24% at 70% 52%, rgba(255,255,255,.08), transparent 70%),
-  radial-gradient(55% 50% at 95% 12%, rgba(42,77,255,.8), transparent 75%),
-  radial-gradient(50% 40% at 8% 0%, rgba(120,170,255,.24), transparent 70%),
-  linear-gradient(180deg,rgba(11,43,184,.72) 0%,rgba(10,28,149,.7) 40%,rgba(10,21,80,.76) 74%,rgba(7,8,13,.82) 100%); }
-/* grão com opacidade simples (sem mix-blend: com vídeo por baixo, blend força recomposição a cada quadro) */
-.mesh-blue::after { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .1;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+.mesh-blue { background: transparent; }
 
-/*
- * Atmosfera contínua do corpo da página: um único degradê vertical (ink → azul noturno → ink)
- * com luzes amplas alternando de lado, em rem (não %), para não formar faixas.
- * Azul domina; o laranja aparece só perto das chamadas. Translúcido: os vídeos de fundo aparecem por baixo.
- */
-.page-bg { background:
-  radial-gradient(64rem 44rem at 100% 7%, rgb(35 64 255 / .2), transparent 68%),
-  radial-gradient(58rem 42rem at 0% 30%, rgb(35 64 255 / .14), transparent 68%),
-  radial-gradient(50rem 36rem at 100% 52%, rgb(255 90 31 / .06), transparent 68%),
-  radial-gradient(60rem 42rem at 0% 70%, rgb(35 64 255 / .15), transparent 68%),
-  radial-gradient(56rem 36rem at 100% 88%, rgb(35 64 255 / .12), transparent 68%),
-  linear-gradient(180deg,rgba(7,8,13,.82) 0%,rgba(10,15,42,.74) 12%,rgba(11,19,64,.68) 34%,rgba(10,15,42,.74) 54%,rgba(11,19,64,.68) 76%,rgba(10,15,42,.72) 92%,rgba(7,8,13,.86) 100%); }
+/* Fundo da página: preto uniforme (#000 no body); sem degradês, os vídeos de fundo aparecem por baixo. */
+.page-bg { background: transparent; }
 
 /*
  * Palco de fundo: vídeos fixos atrás de toda a página, escuros e suaves, para serem atmosfera, não conteúdo.
@@ -157,6 +144,12 @@ body::after { content: ""; position: fixed; inset: 0; z-index: 90; pointer-event
  */
 .bg-stage { position: fixed; inset: 0; z-index: -10; overflow: hidden; pointer-events: none; background: var(--color-ink); }
 .bg-stage-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1.4s ease; }
-.bg-stage-video.is-on { opacity: .75; }
+.bg-stage-video.is-on { opacity: .38; }
 .bg-stage::after { content: ""; position: absolute; inset: 0;
-  background: radial-gradient(120% 90% at 50% 40%, transparent 40%, rgb(7 8 13 / .55) 100%); }
+  background: radial-gradient(120% 90% at 50% 40%, transparent 40%, rgb(0 0 0 / .55) 100%); }
+
+/* Vídeo oficial (Reel do Instagram) no topo: o embed.js aplica estilos inline no iframe; aqui só centraliza e arredonda,
+   com o brilho azul oficial em volta. */
+.promo-video .instagram-media, .promo-video iframe { margin: 0 auto !important; width: 100% !important; max-width: 100% !important; }
+.promo-video iframe { border: 0 !important; border-radius: .75rem !important;
+  box-shadow: 0 30px 80px -30px rgb(24 193 255 / .45), 0 0 0 1px rgb(255 255 255 / .15) !important; }

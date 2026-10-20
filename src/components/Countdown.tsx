@@ -10,7 +10,7 @@ export default function Countdown({ className = "" }: { className?: string }) {
       {c.status === "before" ? (
         <div aria-hidden className="grid max-w-xl grid-cols-4 border-t border-paper/25">
           {units.map(([label, v], i) => (
-            <div key={label} className={`pt-4 ${i ? "border-l border-paper/25 pl-3 md:pl-5" : ""}`}>
+            <div key={label} className={`pt-4 text-center ${i ? "border-l border-paper/25" : ""}`}>
               <div key={v} className="tick font-display text-[clamp(2.5rem,1.8rem+3vw,4.5rem)] leading-none tabular-nums">{pad(v)}</div>
               <div className="mt-1 font-cond text-sm font-extrabold uppercase tracking-[.18em] text-orange">{label}</div>
             </div>

@@ -8,14 +8,13 @@ export const TICKET_URL = "https://www.e-inscricao.com/e/w9OD4Z000a8g";
 export const eventData = {
   name: "Conferência Electus",
   year: 2026,
-  // Um único dia. doors = abertura dos portões (alvo da contagem regressiva); start = 1ª sessão; "ao vivo" até end.
+  // Um único dia. doors = abertura dos portões (alvo da contagem regressiva); start = início do evento; "ao vivo" até end.
   dates: { doors: "2026-12-12T15:30:00-03:00", start: "2026-12-12T16:30:00-03:00", end: "2026-12-12T23:00:00-03:00" },
   day: { weekday: "SÁBADO", day: "12", month: "DEZ", long: "12 DE DEZEMBRO" },
-  // Horários do dia, na ordem (aparecem no topo e em "Data e local").
+  // Horários do dia, na ordem (aparecem no topo e em "Data e local"): só abertura dos portões e início do evento.
   schedule: [
     { time: "15H30", title: "Abertura dos portões" },
-    { time: "16H30", title: "1ª sessão" },
-    { time: "20H", title: "2ª sessão" },
+    { time: "16H30", title: "Início do evento" },
   ],
   timesArePreliminary: false,
   ticketUrl: TICKET_URL,
@@ -26,6 +25,12 @@ export const eventData = {
   church: { name: "Renovo Church", city: "São Bernardo do Campo, SP",
     address: "Estrada dos Casa, 4285 - Bairro dos Casa, São Bernardo do Campo - SP, 09840-000" },
   instagram: { handle: "@electus.sbc", url: "https://instagram.com/electus.sbc" },
+  // Vídeo oficial de divulgação, em destaque logo abaixo do logo no topo, tocando no próprio site (player do site).
+  // Arquivos em public/media/ (horizontal 16:9, 2min19s, com narração e legendas): src = 720p (telas a partir de 768px),
+  // srcMobile = 540p (celulares), poster = quadro final com a arte "Conferência Electus 2026". Se o arquivo faltar, o site
+  // mostra o Reel incorporado do Instagram no mesmo lugar. url = Reel oficial (link discreto "Assistir no Instagram").
+  promoVideo: { src: "/media/promo-electus.mp4", srcMobile: "/media/promo-electus-540.mp4", poster: "/media/promo-electus.webp",
+    url: "https://www.instagram.com/reel/Ddhwf7pM0ms/" },
   // LOGO: letra "e" (vazio = só texto ELECTUS)
   logoSrc: "/logo/electus-e.png", // só a letra "e" (PNG transparente); troque por SVG quando tiver
   verse: { ref: "1 PEDRO 1:2", words: ["ELEITOS", "SANTIFICADOS", "OBEDIENTES", "PURIFICADOS"],
@@ -40,7 +45,7 @@ export const eventData = {
   },
   // Textos de apresentação: a ligação entre a identidade (Electus) e o tema (O Despertar).
   intro: {
-    lines: ["Somos o Electus.", "Jovens da Renovo,", "de 18 a 35 anos."],
+    lines: ["Somos o Electus.", "O ministério de jovens", "da Renovo Church."],
     lead: "Electus: é hora de despertar para a nossa eleição. Em 12 de dezembro, a gente para tudo por um dia para viver O Despertar.",
     blocks: [
       { label: "Quem somos", text: "Escolhidos e eleitos por Deus, de acordo com o seu pré-conhecimento (1 Pedro 1:2). É isso que Electus quer dizer." },
@@ -95,12 +100,14 @@ export const eventData = {
     { q: "Quem pode participar da Conferência Electus?",
       a: "A conferência é aberta a todos que quiserem participar. Ela reúne jovens de diferentes igrejas Renovo para um dia de comunhão e busca por Deus." },
     { q: "Quando acontece a conferência?",
-      a: "No sábado, 12 de dezembro de 2026. Os portões abrem às 15h30, a 1ª sessão começa às 16h30 e a 2ª sessão, às 20h." },
+      a: "No sábado, 12 de dezembro de 2026. Os portões abrem às 15h30 e o evento começa às 16h30." },
     { q: "Onde será realizada?",
       a: "Na Renovo Church, em São Bernardo do Campo, SP. Confira o endereço e a rota antes de sair.",
       link: { label: "Ver endereço", href: "#local" } },
     { q: "O local tem estacionamento?",
       a: "Sim. O local conta com estacionamento gratuito para os participantes." },
+    { q: "Tem algum local para comer perto?",
+      a: "Sim, o evento contará com praça de alimentação no local." },
     { q: "Como garanto meu ingresso?",
       a: "Clique em qualquer botão de ingresso do site. Você será levado à plataforma oficial de inscrições, onde conclui a compra.",
       ticket: true },
