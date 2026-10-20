@@ -1,0 +1,12 @@
+node_modules/
+dist/
+*.tsbuildinfo
+.env
+.env.*
+*.pem
+*.key
+.claude/settings.local.json
+.vscode/
+.DS_Store
+Thumbs.db
+*.log

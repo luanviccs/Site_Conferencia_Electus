@@ -1,0 +1,162 @@
+@import "tailwindcss";
+/*
+ * Fonte de DESTAQUE (só o tema "O Despertar"): Our Arcade Games (pixel, um único peso). O arquivo original só tinha A–Z e 0–9;
+ * esta versão ganhou acentos (ÁÀÂÃ ÉÊ Í ÓÔÕ Ú Ç) e pontuação (? ! . , : — / " ') no mesmo grid de pixels.
+ * size-adjust: a altura das maiúsculas fica próxima à da fonte anterior; métricas fixas = mesma caixa de linha em todo SO.
+ */
+@font-face { font-family: "Our Arcade Games"; src: url("/fonts/our-arcade-games.woff2") format("woff2");
+  font-weight: 400; font-style: normal; font-display: swap;
+  size-adjust: 70%; ascent-override: 100%; descent-override: 0%; line-gap-override: 0%; }
+@theme {
+  --color-ink: #07080d; --color-deep: #0a1030; --color-night: #0b1445; --color-blue: #2340ff;
+  --color-orange: #ff5a1f; --color-paper: #f3f0e8; --color-mute: #8b8e99;
+  /* Impacto (títulos), leitura (texto) e um acento editorial em itálico, usado com parcimônia */
+  --font-display: "Big Shoulders Display", Impact, sans-serif;
+  --font-pixel: "Our Arcade Games", "Big Shoulders Display", Impact, sans-serif;
+  --font-sans: "Instrument Sans", system-ui, sans-serif;
+  --font-cond: "Big Shoulders Display", "Arial Narrow", sans-serif;
+  --ease-out-soft: cubic-bezier(.2,.8,.2,1);
+}
+
+@layer base {
+  html { overflow-x: clip; scroll-behavior: smooth; scroll-padding-top: 5.5rem; -webkit-text-size-adjust: 100%; }
+  body { background: var(--color-ink); color: var(--color-paper); font-family: var(--font-sans); overflow-x: clip;
+    -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  ::selection { background: var(--color-orange); color: var(--color-ink); }
+  :focus-visible { outline: 3px solid var(--color-orange); outline-offset: 3px; }
+  img { max-width: 100%; }
+}
+
+/* grain sutil (SVG inline, sem requisição) */
+body::after { content: ""; position: fixed; inset: 0; z-index: 90; pointer-events: none; opacity: .05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+
+@layer components {
+  /* Container único: mesma largura máxima e mesmas margens laterais em todas as seções */
+  .wrap { width: 100%; max-width: 90rem; margin-inline: auto; padding-inline: 1.25rem; }
+  @media (min-width: 48rem) { .wrap { padding-inline: 2.5rem; } }
+  @media (min-width: 80rem) { .wrap { padding-inline: 3.5rem; } }
+
+  /* Ritmo vertical padrão entre seções */
+  .section { padding-block: 5.5rem; }
+  @media (min-width: 48rem) { .section { padding-block: 7.5rem; } }
+
+  /* Tipografia */
+  .eyebrow { display: flex; align-items: center; gap: .75rem; font-family: var(--font-cond); font-weight: 800;
+    font-size: 1rem; letter-spacing: .2em; text-transform: uppercase; color: var(--color-orange); }
+  .eyebrow::before { content: ""; width: 1.75rem; height: 2px; background: currentColor; flex: none; }
+  /* Rótulo de dado (dia, local, número): legível em tamanho pequeno */
+  .label { font-family: var(--font-cond); font-weight: 800; font-size: .9375rem; letter-spacing: .18em;
+    text-transform: uppercase; color: rgb(243 240 232 / .62); }
+  .h-section { font-family: var(--font-display); font-weight: 900; text-transform: uppercase; line-height: .9;
+    letter-spacing: -.005em; font-size: clamp(2.75rem, 1.4rem + 5.6vw, 7rem); text-wrap: balance; }
+  .lede { font-size: clamp(1.0625rem, .98rem + .35vw, 1.3125rem); line-height: 1.55; color: rgb(243 240 232 / .78); text-wrap: pretty; }
+
+  /* Botões: retos, borda de 2px, área de toque >= 48px; feedback discreto de cor, elevação e brilho */
+  .btn { position: relative; display: inline-flex; align-items: center; justify-content: center; gap: .65rem; min-height: 3.25rem;
+    padding: .8rem 1.5rem; border: 2px solid currentColor; font-family: var(--font-cond); font-weight: 800;
+    font-size: 1.125rem; line-height: 1; letter-spacing: .08em; text-transform: uppercase; white-space: nowrap;
+    transition: background-color .25s, border-color .25s, color .25s, box-shadow .3s, transform .25s var(--ease-out-soft); }
+  .btn .arrow { display: inline-block; transition: transform .3s var(--ease-out-soft); }
+  .btn:hover .arrow, .btn:focus-visible .arrow { transform: translate(3px, -3px); }
+  .btn:active { transform: translateY(1px) scale(.99); }
+  .btn-primary { background: var(--color-orange); border-color: var(--color-orange); color: var(--color-ink); }
+  .btn-primary:hover { background: #ff6c35; border-color: #ff6c35; transform: translateY(-2px);
+    box-shadow: 0 14px 32px -14px rgb(255 90 31 / .85); }
+  .btn-ghost { color: var(--color-paper); border-color: rgb(243 240 232 / .4); }
+  .btn-ghost:hover { border-color: var(--color-paper); background: rgb(243 240 232 / .08); }
+  .btn-sm { min-height: 2.75rem; padding: .55rem 1rem; font-size: 1rem; }
+  .btn-lg { min-height: 3.75rem; padding: 1rem 2rem; font-size: 1.3rem; }
+
+  /* Link de texto com sublinhado que cresce no hover/foco */
+  .link-line { background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat; transition: background-size .35s var(--ease-out-soft), color .2s; }
+  .link-line:hover, .link-line:focus-visible { background-size: 100% 1px; }
+
+  .font-display { font-weight: 900; letter-spacing: -.01em; }
+  /* pixel: peso único (sem negrito sintético) e sem tracking, para não borrar o grid */
+  .font-pixel { font-weight: 400; font-synthesis: none; letter-spacing: 0; }
+}
+
+/* ——— Movimento: só entradas e respostas a interação; nada pulsa ou fica em loop chamando atenção ——— */
+/* Entrada do hero ao carregar (escalonada por --d) */
+.rise { animation: rise .9s var(--ease-out-soft) both; animation-delay: var(--d, 0ms); }
+@keyframes rise { from { opacity: 0; transform: translateY(22px); } }
+.rise-photo { animation: rise-photo 1.4s var(--ease-out-soft) both; animation-delay: var(--d, 0ms); }
+@keyframes rise-photo { from { opacity: 0; transform: scale(1.06); } }
+
+/* Entrada ao rolar (uma vez por elemento) */
+.reveal { opacity: 0; transform: translateY(26px); transition: opacity .8s var(--ease-out-soft), transform .9s var(--ease-out-soft); }
+.reveal.in { opacity: 1; transform: none; }
+/* Fotos: surgem e a imagem assenta (escala 1.06 → 1) */
+.reveal-photo { opacity: 0; transition: opacity 1s var(--ease-out-soft); }
+.reveal-photo img, .reveal-photo video { transform: scale(1.06); transition: transform 1.6s var(--ease-out-soft); }
+.reveal-photo.in { opacity: 1; }
+.reveal-photo.in img, .reveal-photo.in video { transform: none; }
+
+.tick { animation: tick .35s ease-out; } @keyframes tick { from { transform: translateY(-12%); opacity: .2; } }
+.marquee { animation: marquee 48s linear infinite; } @keyframes marquee { to { transform: translateX(-50%); } }
+.marquee-wrap:hover .marquee { animation-play-state: paused; }
+
+.speaker-img { transform: scale(var(--z, 1)); transition: transform 1s var(--ease-out-soft); }
+@media (hover: hover) { .speaker:hover .speaker-img { transform: scale(var(--z, 1)) scale(1.035); } }
+
+/* FAQ: altura animada sem medir o DOM (grid 0fr → 1fr) */
+.faq-panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .45s var(--ease-out-soft); }
+.faq-panel > div { overflow: hidden; min-height: 0; }
+.faq-panel > div > p, .faq-panel > div > div { opacity: 0; transform: translateY(-6px); transition: opacity .3s, transform .45s var(--ease-out-soft); }
+.faq-item[data-open="true"] .faq-panel { grid-template-rows: 1fr; }
+.faq-item[data-open="true"] .faq-panel > div > p, .faq-item[data-open="true"] .faq-panel > div > div { opacity: 1; transform: none; transition-delay: .08s; }
+.faq-icon::before, .faq-icon::after { content: ""; position: absolute; inset: 50% 0 auto; height: 2px; margin-top: -1px; background: currentColor;
+  transition: transform .4s var(--ease-out-soft); }
+.faq-icon::after { transform: rotate(90deg); }
+.faq-item[data-open="true"] .faq-icon::after { transform: rotate(0deg); }
+.faq-item[data-open="true"] .faq-icon { color: var(--color-orange); }
+
+/* Menu mobile */
+.menu-panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .4s var(--ease-out-soft); }
+.menu-panel > div { overflow: hidden; min-height: 0; }
+.menu-panel[data-open="true"] { grid-template-rows: 1fr; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition-duration: .01ms !important; transition-delay: 0s !important; scroll-behavior: auto !important; }
+  .reveal, .reveal-photo, .reveal-photo img, .reveal-photo video { opacity: 1; transform: none; }
+}
+
+/* Cromado: gradiente metálico recortado no texto (assinatura do wordmark) */
+.chrome { background: linear-gradient(180deg,#fff 0%,#d6ebff 18%,#5b84ff 40%,#0a1250 54%,#7fb8ff 64%,#fff 76%,#ffb184 90%,#ff5a1f 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent; filter: drop-shadow(0 0 22px rgba(35,64,255,.4)); }
+
+/* Hero: malha azul granulada com uma única fonte de calor (laranja) atrás da foto; translúcida para o vídeo de fundo
+   respirar por baixo; termina no tom de base da página */
+.mesh-blue { background:
+  radial-gradient(38% 32% at 74% 62%, rgba(255,90,31,.38), transparent 72%),
+  radial-gradient(26% 24% at 70% 52%, rgba(255,255,255,.08), transparent 70%),
+  radial-gradient(55% 50% at 95% 12%, rgba(42,77,255,.8), transparent 75%),
+  radial-gradient(50% 40% at 8% 0%, rgba(120,170,255,.24), transparent 70%),
+  linear-gradient(180deg,rgba(11,43,184,.72) 0%,rgba(10,28,149,.7) 40%,rgba(10,21,80,.76) 74%,rgba(7,8,13,.82) 100%); }
+/* grão com opacidade simples (sem mix-blend: com vídeo por baixo, blend força recomposição a cada quadro) */
+.mesh-blue::after { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .1;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+
+/*
+ * Atmosfera contínua do corpo da página: um único degradê vertical (ink → azul noturno → ink)
+ * com luzes amplas alternando de lado, em rem (não %), para não formar faixas.
+ * Azul domina; o laranja aparece só perto das chamadas. Translúcido: os vídeos de fundo aparecem por baixo.
+ */
+.page-bg { background:
+  radial-gradient(64rem 44rem at 100% 7%, rgb(35 64 255 / .2), transparent 68%),
+  radial-gradient(58rem 42rem at 0% 30%, rgb(35 64 255 / .14), transparent 68%),
+  radial-gradient(50rem 36rem at 100% 52%, rgb(255 90 31 / .06), transparent 68%),
+  radial-gradient(60rem 42rem at 0% 70%, rgb(35 64 255 / .15), transparent 68%),
+  radial-gradient(56rem 36rem at 100% 88%, rgb(35 64 255 / .12), transparent 68%),
+  linear-gradient(180deg,rgba(7,8,13,.82) 0%,rgba(10,15,42,.74) 12%,rgba(11,19,64,.68) 34%,rgba(10,15,42,.74) 54%,rgba(11,19,64,.68) 76%,rgba(10,15,42,.72) 92%,rgba(7,8,13,.86) 100%); }
+
+/*
+ * Palco de fundo: vídeos fixos atrás de toda a página, escuros e suaves, para serem atmosfera, não conteúdo.
+ * O tingimento azul e o desfoque já vêm nos arquivos (nada de filter/mix-blend por quadro). Troca de cena = fusão de opacidade.
+ */
+.bg-stage { position: fixed; inset: 0; z-index: -10; overflow: hidden; pointer-events: none; background: var(--color-ink); }
+.bg-stage-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1.4s ease; }
+.bg-stage-video.is-on { opacity: .75; }
+.bg-stage::after { content: ""; position: absolute; inset: 0;
+  background: radial-gradient(120% 90% at 50% 40%, transparent 40%, rgb(7 8 13 / .55) 100%); }
