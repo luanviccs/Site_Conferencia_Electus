@@ -7,7 +7,7 @@ const IG = <svg aria-hidden viewBox="0 0 24 24" className="h-[1.1em] w-[1.1em] f
 /**
  * Título e texto centralizados no topo; abaixo, as duas atrações lado a lado: foto, nome, descrição curta e o Instagram oficial (discreto,
  * para não competir com o botão de ingressos). Foto horizontal (banda completa) ganha coluna mais larga; a partir de 640px
- * as duas fotos têm a mesma altura. A foto do Pr. Dênio tem ~335px de largura, por isso a coluna dele é a estreita.
+ * as duas fotos têm a mesma altura. A foto do Pr. Dênio é vertical (retrato), por isso a coluna dele é a estreita.
  */
 export default function Speakers() {
   return (

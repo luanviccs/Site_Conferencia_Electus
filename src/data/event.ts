@@ -68,7 +68,7 @@ export const eventData = {
       image: "/images/speakers/dunamis-music.webp", w: 1200, h: 800, shape: "wide", pos: "50% 58%", zoom: 1 },
     { id: "denio", name: "Pr. Dênio Lara", description: "Pastor da Igreja Dinamus.",
       instagram: { handle: "@deniolarajr", url: "https://www.instagram.com/deniolarajr/" },
-      image: "/images/speakers/denio-lara.webp", w: 335, h: 597, shape: "tall", pos: "50% 22%", zoom: 1 },
+      image: "/images/speakers/denio-lara.webp", w: 900, h: 1600, shape: "tall", pos: "50% 36%", zoom: 1 },
   ],
   // Fotos reais do Electus (public/images/electus/; cada uma tem versão -960.webp para celulares).
   // Todas ficam reunidas na galeria de "Por que Electus?", na ordem abaixo (posição no mosaico em ElectusVision.tsx).
