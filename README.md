@@ -4,7 +4,7 @@
 
 # Conferência Electus 2026 · O Despertar
 
-**Landing page oficial da conferência do Electus, o ministério de jovens da Renovo Church.**
+**Landing page oficial da conferência do Electus, o ministério de jovens da Cidade Renovo.**
 [www.conferenciaelectus.com.br](https://www.conferenciaelectus.com.br)
 Sábado, 12 de dezembro de 2026 · Cidade Renovo · São Bernardo do Campo, SP
 
@@ -68,7 +68,7 @@ Atrás de toda a página há um **palco de vídeos de fundo**: vídeos mudos e e
 | Seção na tela | Vídeo de fundo (`public/media/`) |
 |---|---|
 | Topo | `bg-ministracao` |
-| A conferência | `bg-drone` (drone na Renovo Church) |
+| A conferência | `bg-drone` (drone na Cidade Renovo) |
 | Convidados | `bg-adoracao` |
 | Por que Electus? | `bg-danca` |
 | Data e local · Dúvidas | `bg-jesus` |
@@ -308,5 +308,5 @@ flowchart LR
 | [`CHANGELOG.md`](CHANGELOG.md) | Histórico de mudanças |
 
 <div align="center">
-<sub>Electus · Renovo Church · São Bernardo do Campo, SP</sub>
+<sub>Electus · Cidade Renovo · São Bernardo do Campo, SP</sub>
 </div>

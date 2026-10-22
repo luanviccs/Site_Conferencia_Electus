@@ -18,11 +18,11 @@ export const eventData = {
   ],
   timesArePreliminary: false,
   ticketUrl: TICKET_URL,
-  // Local do evento: Cidade Renovo (espaço da Renovo Church).
+  // Igreja e local do evento: sempre "Cidade Renovo".
   venue: { confirmed: true, name: "Cidade Renovo", address: "Estrada dos Casa, 4285 - Bairro dos Casa, São Bernardo do Campo - SP, 09840-000",
     mapUrl: "https://www.google.com/maps/search/?api=1&query=Estrada+dos+Casa+4285+S%C3%A3o+Bernardo+do+Campo+SP", parking: "Estacionamento gratuito" },
   // A igreja (organização): rodapé e organizador nos dados para o Google.
-  church: { name: "Renovo Church", city: "São Bernardo do Campo, SP",
+  church: { name: "Cidade Renovo", city: "São Bernardo do Campo, SP",
     address: "Estrada dos Casa, 4285 - Bairro dos Casa, São Bernardo do Campo - SP, 09840-000" },
   instagram: { handle: "@electus.sbc", url: "https://instagram.com/electus.sbc" },
   // Vídeo oficial de divulgação, em destaque logo abaixo do logo no topo, tocando no próprio site (player do site).
@@ -45,7 +45,7 @@ export const eventData = {
   },
   // Textos de apresentação: a ligação entre a identidade (Electus) e o tema (O Despertar).
   intro: {
-    lines: ["O ministério de jovens", "da Renovo Church."],
+    lines: ["O ministério de jovens", "da Cidade Renovo."],
     lead: "Electus: fomos escolhidos para viver o propósito de Deus. No dia 12 de dezembro, vamos nos reunir para um despertar, retornar à essência do Evangelho e viver por Aquele que nos chamou.",
     // Frase de fechamento, logo abaixo do texto de destaque.
     leadClose: "O Despertar começa quando decidimos não permanecer adormecidos.",

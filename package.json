@@ -2,7 +2,7 @@
   "name": "electus-2026",
   "version": "1.0.0",
   "private": true,
-  "description": "Landing page da Conferência Electus 2026 · O Despertar (ministério de jovens da Renovo Church).",
+  "description": "Landing page da Conferência Electus 2026 · O Despertar (ministério de jovens da Cidade Renovo).",
   "type": "module",
   "engines": {
     "node": ">=20.19"

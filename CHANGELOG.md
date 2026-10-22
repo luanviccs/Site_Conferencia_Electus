@@ -6,7 +6,7 @@ Mudanças relevantes do site, da mais recente para a mais antiga.
 
 - Novos textos de "A conferência" (Quem somos · O que nos desperta · Por que despertar) e de "Por que Electus?"
 - Versículo 1 Pedro 1:2 em nova tradução; frase da seção de ingressos: "Conferência Electus: O Despertar"
-- Local do evento: Cidade Renovo
+- Igreja e local do evento: sempre "Cidade Renovo" (título, rodapé, local, ingressos, dúvidas e dados para o Google)
 
 ## 2026-10-22: domínio oficial
 
