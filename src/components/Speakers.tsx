@@ -16,7 +16,7 @@ export default function Speakers() {
         <Reveal className="relative mx-auto w-full max-w-3xl text-center">
           <Sparkle className="pointer-events-none absolute right-0 top-0 w-6 text-orange md:w-7" />
           <p className="eyebrow eyebrow-center">Convidados</p>
-          <h2 className="h-section mt-6">Quem vem com a gente</h2>
+          <h2 className="h-section mt-6">Confira nossa line-up</h2>
           <p className="lede mx-auto mt-6 max-w-[32ch]">Os convidados confirmados da Conferência Electus {eventData.year}.</p>
           <TicketButton className="btn-primary mt-9 hidden lg:inline-flex" />
         </Reveal>
