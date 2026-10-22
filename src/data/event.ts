@@ -62,11 +62,11 @@ export const eventData = {
   speakers: [
     // Fotos em public/images/speakers/. shape: "wide" (foto horizontal, ex.: banda completa) ou "tall" (retrato).
     // w/h = dimensões reais do arquivo; pos = enquadramento (object-position).
-    // Textos curtos e editáveis: confirme a nomenclatura institucional com a organização antes de publicar.
-    { id: "dunamis", name: "Dunamis Music", description: "Expressão musical do movimento Dunamis, dedicada à adoração.",
+    // description: texto oficial dos cards de divulgação (aparece na fonte pixel; "\n" = quebra de linha).
+    { id: "dunamis", name: "Dunamis Music", description: "A Dunamis Music é o selo musical do Dunamis Movement, um proeminente movimento cristão para-eclesiástico atuante no Brasil. O movimento que deu origem ao braço musical foi liderado e fundado pelo pastor e missionário Teófilo (Téo) Hayashi em abril de 2008. Originalmente, o foco era pregar o Evangelho para jovens universitários, e hoje a missão descrita pela organização é buscar despertar essa geração para estabelecer a cultura do Reino de Deus na terra e transformar a sociedade.",
       instagram: { handle: "@dunamis.music", url: "https://www.instagram.com/dunamis.music/" },
       image: "/images/speakers/dunamis-music.webp", w: 1200, h: 800, shape: "wide", pos: "50% 58%", zoom: 1 },
-    { id: "denio", name: "Pr. Dênio Lara", description: "Pastor da Igreja Dinamus.",
+    { id: "denio", name: "Pr. Dênio Lara", description: "Pr. Dênio Lara Jr.\nPastor, escritor e líder da Igreja Dínamus, Dênio Lara Jr. dedica seu ministério a inspirar uma geração a viver o Evangelho de forma autêntica e prática. Com mensagens sobre vida cristã, liderança e maturidade espiritual, tem impactado vidas e encorajado pessoas a aprofundarem sua caminhada com Cristo.",
       instagram: { handle: "@deniolarajr", url: "https://www.instagram.com/deniolarajr/" },
       image: "/images/speakers/denio-lara.webp", w: 900, h: 1600, shape: "tall", pos: "50% 36%", zoom: 1 },
   ],
@@ -108,6 +108,8 @@ export const eventData = {
       a: "Sim. O local conta com estacionamento gratuito para os participantes." },
     { q: "Tem algum local para comer perto?",
       a: "Sim, o evento contará com praça de alimentação no local." },
+    { q: "Crianças pagam ingresso?",
+      a: "Crianças a partir de 12 anos pagam o valor integral do ingresso. Abaixo dessa idade, pagam meia-entrada (exceto crianças de colo). Consulte os valores de entrada em nossa bilheteria." },
     { q: "Como garanto meu ingresso?",
       a: "Clique em qualquer botão de ingresso do site. Você será levado à plataforma oficial de inscrições, onde conclui a compra.",
       ticket: true },

@@ -33,7 +33,9 @@ export default function Speakers() {
                   </div>
                   <div className="mt-5 border-t border-paper/25 pt-4 text-center">
                     <h3 className="font-display text-[clamp(2.25rem,1.7rem+1.8vw,3.25rem)] uppercase leading-[.9]">{s.name}</h3>
-                    <p className="mx-auto mt-2 max-w-[30ch] text-[1.0625rem] leading-relaxed text-paper/75">{s.description}</p>
+                    {/* texto oficial dos cards de divulgação: fonte pixel, justificado como no design; "
+" no texto vira quebra de linha */}
+                    <p className="mt-3 whitespace-pre-line text-justify font-pixel text-[.9375rem] leading-[1.6] text-paper/85 hyphens-auto">{s.description}</p>
                     {s.instagram.url && (
                       <a href={s.instagram.url} target="_blank" rel="noopener noreferrer" aria-label={`Instagram de ${s.name}, ${s.instagram.handle} (abre em nova aba)`}
                         className="group mt-3 inline-flex min-h-11 items-center gap-2 text-[.9375rem] font-medium text-paper/65 transition-colors hover:text-orange focus-visible:text-orange">
