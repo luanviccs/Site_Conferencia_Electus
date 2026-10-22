@@ -14,7 +14,7 @@ export default function Schedule() {
           <div className="relative">
             <Sparkle className="pointer-events-none absolute -right-14 top-12 hidden w-8 text-sky md:block" />
             <p className="eyebrow eyebrow-center">Data e local</p>
-            <h2 className="h-section mt-6">Um dia na<br />Renovo Church</h2>
+            <h2 className="h-section mt-6">Um dia na<br />{venue.name}</h2>
           </div>
           <p className="lede max-w-[34ch]">Sábado, 12 de dezembro de {year}, em São Bernardo do Campo, SP. Portões abertos a partir das 15h30.</p>
         </Reveal>

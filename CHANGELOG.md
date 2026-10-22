@@ -2,6 +2,12 @@
 
 Mudanças relevantes do site, da mais recente para a mais antiga.
 
+## 2026-10-22: textos do tema e local
+
+- Novos textos de "A conferência" (Quem somos · O que nos desperta · Por que despertar) e de "Por que Electus?"
+- Versículo 1 Pedro 1:2 em nova tradução; frase da seção de ingressos: "Conferência Electus: O Despertar"
+- Local do evento: Cidade Renovo
+
 ## 2026-10-22: domínio oficial
 
 - Domínio `www.conferenciaelectus.com.br` (Registro.br → Vercel); `conferenciaelectus.com.br` redireciona para o `www`

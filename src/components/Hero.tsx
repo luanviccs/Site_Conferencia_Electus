@@ -11,7 +11,7 @@ const d = (ms: number) => ({ "--d": `${ms}ms` }) as CSSProperties;
  * Entrada escalonada só no carregamento (desligada com prefers-reduced-motion).
  */
 export default function Hero() {
-  const { church, day, schedule, speakers, theme, year } = eventData;
+  const { church, day, schedule, speakers, theme, venue, year } = eventData;
   const [doors, start] = schedule;
   return (
     <section id="top" className="mesh-blue relative isolate overflow-hidden pb-20 pt-20 text-paper md:pb-24 md:pt-24">
@@ -47,7 +47,7 @@ export default function Hero() {
             </div>
             <div>
               <dt className="label">Local</dt>
-              <dd className="mt-0.5 text-xl font-extrabold leading-tight tracking-[.08em] md:text-2xl">{church.name}
+              <dd className="mt-0.5 text-xl font-extrabold leading-tight tracking-[.08em] md:text-2xl">{venue.name}
                 <span className="mt-1 block font-sans text-sm font-medium normal-case tracking-normal text-paper/75">{church.city}</span></dd>
             </div>
             <div>

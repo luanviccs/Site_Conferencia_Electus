@@ -18,10 +18,10 @@ export const eventData = {
   ],
   timesArePreliminary: false,
   ticketUrl: TICKET_URL,
-  // Local confirmado: Renovo Church.
-  venue: { confirmed: true, name: "Renovo Church", address: "Estrada dos Casa, 4285 - Bairro dos Casa, São Bernardo do Campo - SP, 09840-000",
+  // Local do evento: Cidade Renovo (espaço da Renovo Church).
+  venue: { confirmed: true, name: "Cidade Renovo", address: "Estrada dos Casa, 4285 - Bairro dos Casa, São Bernardo do Campo - SP, 09840-000",
     mapUrl: "https://www.google.com/maps/search/?api=1&query=Estrada+dos+Casa+4285+S%C3%A3o+Bernardo+do+Campo+SP", parking: "Estacionamento gratuito" },
-  // Endereço da igreja (informado), exibido no rodapé.
+  // A igreja (organização): rodapé e organizador nos dados para o Google.
   church: { name: "Renovo Church", city: "São Bernardo do Campo, SP",
     address: "Estrada dos Casa, 4285 - Bairro dos Casa, São Bernardo do Campo - SP, 09840-000" },
   instagram: { handle: "@electus.sbc", url: "https://instagram.com/electus.sbc" },
@@ -34,28 +34,31 @@ export const eventData = {
   // Letra "e" do Electus (PNG transparente), usada como máscara no cabeçalho e como marca d'água (componente Mark).
   logoSrc: "/logo/electus-e.png",
   verse: { ref: "1 PEDRO 1:2", words: ["ELEITOS", "SANTIFICADOS", "OBEDIENTES", "PURIFICADOS"],
-    // Texto bíblico (Nova Versão Internacional).
-    text: "Escolhidos de acordo com o pré-conhecimento de Deus Pai, pela obra santificadora do Espírito, para a obediência a Jesus Cristo e a aspersão do seu sangue: Graça e paz lhes sejam multiplicadas.",
-    version: "NVI" },
+    // Texto bíblico citado na seção "Por que Electus?". version: sigla da tradução (vazio = não mostra).
+    text: "Deus, o Pai, os conhecia de antemão e os escolheu, e o Espírito os santificou para a obediência e a purificação pelo sangue de Jesus Cristo. Que vocês tenham cada vez mais graça e paz.",
+    version: "" },
   // Tema da conferência 2026 (topo, "A conferência", ingressos e título da página).
   theme: {
     name: "O Despertar",
     tagline: "Escolhidos por Deus, despertados pelo Espírito.",
-    slogan: "O Despertar dos Eleitos.",
+    slogan: "Conferência Electus: O Despertar",
   },
   // Textos de apresentação: a ligação entre a identidade (Electus) e o tema (O Despertar).
   intro: {
-    lines: ["Somos o Electus.", "O ministério de jovens", "da Renovo Church."],
-    lead: "Electus: é hora de despertar para a nossa eleição. Em 12 de dezembro, a gente para tudo por um dia para viver O Despertar.",
+    lines: ["O ministério de jovens", "da Renovo Church."],
+    lead: "Electus: fomos escolhidos para viver o propósito de Deus. No dia 12 de dezembro, vamos nos reunir para um despertar, retornar à essência do Evangelho e viver por Aquele que nos chamou.",
+    // Frase de fechamento, logo abaixo do texto de destaque.
+    leadClose: "O Despertar começa quando decidimos não permanecer adormecidos.",
     blocks: [
-      { label: "Quem somos", text: "Escolhidos e eleitos por Deus, de acordo com o seu pré-conhecimento (1 Pedro 1:2). É isso que Electus quer dizer." },
-      { label: "O problema", text: "Muitas vezes, os escolhidos dormem espiritualmente, esquecem sua identidade ou se misturam com o mundo." },
-      { label: "O chamado", text: "Despertar é o momento em que o escolhido acorda para viver a santificação e a obediência para as quais foi chamado." },
+      { label: "Quem somos", text: "Fomos escolhidos por Deus, chamados pelo nome e separados para o Seu propósito. Somos Electus: uma geração cuja identidade está em Cristo." },
+      { label: "O que nos desperta", text: "O maior perigo não é deixar de caminhar, mas se acostumar a viver adormecido. É hora de romper com a indiferença, abandonar as distrações e voltar ao primeiro amor." },
+      { label: "Por que despertar", text: "Porque há um chamado que exige uma resposta. Uma geração precisa se levantar, uma chama precisa arder novamente e uma vida inteira precisa ser colocada aos pés de Jesus." },
     ],
   },
   vision: {
     title: "Por que Electus?",
-    text: "Electus é o nome do nosso grupo. O lema vem de um único versículo, 1 Pedro 1:2, e se resume em quatro palavras. É assim que a gente se apresenta.",
+    text: "Electus carrega a essência daquilo para o qual fomos chamados. Inspirado em 1 Pedro 1:2 significa que somos Eleitos pelo Pai. Santificados pelo Espírito. Obedientes ao Filho. Purificados pelo Seu sangue.",
+    text2: "Ser Electus é compreender que fomos alcançados para viver uma vida que O glorifique.",
     // Frase de efeito do tema, logo abaixo das quatro palavras.
     callout: "Santificados para obedecer: o despertar da igreja eleita.",
   },
@@ -102,7 +105,7 @@ export const eventData = {
     { q: "Quando acontece a conferência?",
       a: "No sábado, 12 de dezembro de 2026. Os portões abrem às 15h30 e o evento começa às 16h30." },
     { q: "Onde será realizada?",
-      a: "Na Renovo Church, em São Bernardo do Campo, SP. Confira o endereço e a rota antes de sair.",
+      a: "Na Cidade Renovo, em São Bernardo do Campo, SP. Confira o endereço e a rota antes de sair.",
       link: { label: "Ver endereço", href: "#local" } },
     { q: "O local tem estacionamento?",
       a: "Sim. O local conta com estacionamento gratuito para os participantes." },

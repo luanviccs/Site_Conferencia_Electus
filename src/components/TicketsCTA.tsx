@@ -15,7 +15,7 @@ export default function TicketsCTA() {
           <p className="eyebrow eyebrow-center">Ingressos</p>
           <h2 className="mt-6 font-display text-[clamp(3.5rem,2rem+7vw,9rem)] uppercase leading-[.85]">Garanta seu <span className="text-orange">ingresso</span></h2>
           <p className="mt-7 text-[clamp(1.25rem,1.1rem+.6vw,1.625rem)] font-semibold leading-snug text-paper">{eventData.theme.slogan}</p>
-          <p className="lede mx-auto mt-3 max-w-[40ch] text-paper/90">Sábado, 12 de dezembro, na Renovo Church. Portões abertos a partir das 15h30. A compra é feita na plataforma oficial de inscrições.</p>
+          <p className="lede mx-auto mt-3 max-w-[40ch] text-paper/90">Sábado, 12 de dezembro, na {eventData.venue.name}. Portões abertos a partir das 15h30. A compra é feita na plataforma oficial de inscrições.</p>
           <div className="mt-10"><TicketButton className="btn-primary btn-lg" /></div>
           <Countdown className="mx-auto mt-14 max-w-xl" />
         </Reveal>

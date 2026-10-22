@@ -2,7 +2,7 @@ import { eventData } from "../data/event";
 import Reveal from "./Reveal";
 import Sparkle from "./Sparkle";
 export default function ConferenceIntro() {
-  const { lines, lead, blocks } = eventData.intro;
+  const { lines, lead, leadClose, blocks } = eventData.intro;
   return (
     <section id="conferencia" className="section">
       <div className="wrap text-center">
@@ -18,6 +18,7 @@ export default function ConferenceIntro() {
         <div className="mt-12 md:mt-16">
           <Reveal delay={60}>
             <p className="mx-auto max-w-[34ch] text-[clamp(1.375rem,1.1rem+.9vw,1.875rem)] font-semibold leading-snug text-paper text-balance">{lead}</p>
+            <p className="mx-auto mt-5 max-w-[34ch] text-[clamp(1.25rem,1.05rem+.7vw,1.625rem)] font-semibold leading-snug text-orange text-balance">{leadClose}</p>
           </Reveal>
           <Reveal className="mt-12 md:mt-16" delay={120}>
             <dl className="grid gap-8 md:grid-cols-3 md:gap-x-10 lg:gap-x-14">

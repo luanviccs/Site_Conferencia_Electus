@@ -6,7 +6,7 @@
 
 **Landing page oficial da conferência do Electus, o ministério de jovens da Renovo Church.**
 [www.conferenciaelectus.com.br](https://www.conferenciaelectus.com.br)
-Sábado, 12 de dezembro de 2026 · Renovo Church · São Bernardo do Campo, SP
+Sábado, 12 de dezembro de 2026 · Cidade Renovo · São Bernardo do Campo, SP
 
 [![CI](https://github.com/luanviccs/conferencia_electus_previa/actions/workflows/ci.yml/badge.svg)](https://github.com/luanviccs/conferencia_electus_previa/actions/workflows/ci.yml)
 ![React 18](https://img.shields.io/badge/React-18-18C1FF?logo=react&logoColor=white&labelColor=000)
@@ -33,7 +33,7 @@ Sábado, 12 de dezembro de 2026 · Renovo Church · São Bernardo do Campo, SP
 | **Tema** | O Despertar: *"Escolhidos por Deus, despertados pelo Espírito."* |
 | **Data** | Sábado, 12 de dezembro de 2026 |
 | **Horários** | 15h30, abertura dos portões · 16h30, início do evento |
-| **Local** | Renovo Church, Estrada dos Casa, 4285, Bairro dos Casa, São Bernardo do Campo, SP (estacionamento gratuito) |
+| **Local** | Cidade Renovo, Estrada dos Casa, 4285, Bairro dos Casa, São Bernardo do Campo, SP (estacionamento gratuito) |
 | **Convidados** | Dunamis Music · Pr. Dênio Lara |
 | **Versículo** | 1 Pedro 1:2: eleitos, santificados, obedientes, purificados |
 | **Ingressos** | [e-inscrição](https://www.e-inscricao.com/e/w9OD4Z000a8g) |
