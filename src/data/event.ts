@@ -10,7 +10,7 @@ export const eventData = {
   year: 2026,
   // Um único dia. doors = abertura dos portões (alvo da contagem regressiva); start = início do evento; "ao vivo" até end.
   dates: { doors: "2026-12-12T15:30:00-03:00", start: "2026-12-12T16:30:00-03:00", end: "2026-12-12T23:00:00-03:00" },
-  day: { weekday: "SÁBADO", day: "12", month: "DEZ", long: "12 DE DEZEMBRO" },
+  day: { weekday: "SÁBADO", day: "12", month: "DEZ" },
   // Horários do dia, na ordem (aparecem no topo e em "Data e local"): só abertura dos portões e início do evento.
   schedule: [
     { time: "15H30", title: "Abertura dos portões" },
@@ -20,7 +20,7 @@ export const eventData = {
   ticketUrl: TICKET_URL,
   // Local confirmado: Renovo Church.
   venue: { confirmed: true, name: "Renovo Church", address: "Estrada dos Casa, 4285 - Bairro dos Casa, São Bernardo do Campo - SP, 09840-000",
-    mapUrl: "https://www.google.com/maps/search/?api=1&query=Estrada+dos+Casa+4285+S%C3%A3o+Bernardo+do+Campo+SP", parking: "Estacionamento gratuito", transport: "" },
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=Estrada+dos+Casa+4285+S%C3%A3o+Bernardo+do+Campo+SP", parking: "Estacionamento gratuito" },
   // Endereço da igreja (informado), exibido no rodapé.
   church: { name: "Renovo Church", city: "São Bernardo do Campo, SP",
     address: "Estrada dos Casa, 4285 - Bairro dos Casa, São Bernardo do Campo - SP, 09840-000" },
@@ -31,8 +31,8 @@ export const eventData = {
   // mostra o Reel incorporado do Instagram no mesmo lugar. url = Reel oficial (link discreto "Assistir no Instagram").
   promoVideo: { src: "/media/promo-electus.mp4", srcMobile: "/media/promo-electus-540.mp4", poster: "/media/promo-electus.webp",
     url: "https://www.instagram.com/reel/Ddhwf7pM0ms/" },
-  // LOGO: letra "e" (vazio = só texto ELECTUS)
-  logoSrc: "/logo/electus-e.png", // só a letra "e" (PNG transparente); troque por SVG quando tiver
+  // Letra "e" do Electus (PNG transparente), usada como máscara no cabeçalho e como marca d'água (componente Mark).
+  logoSrc: "/logo/electus-e.png",
   verse: { ref: "1 PEDRO 1:2", words: ["ELEITOS", "SANTIFICADOS", "OBEDIENTES", "PURIFICADOS"],
     // Texto bíblico (Nova Versão Internacional).
     text: "Escolhidos de acordo com o pré-conhecimento de Deus Pai, pela obra santificadora do Espírito, para a obediência a Jesus Cristo e a aspersão do seu sangue: Graça e paz lhes sejam multiplicadas.",
