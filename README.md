@@ -5,6 +5,7 @@
 # Conferência Electus 2026 · O Despertar
 
 **Landing page oficial da conferência do Electus, o ministério de jovens da Renovo Church.**
+[www.conferenciaelectus.com.br](https://www.conferenciaelectus.com.br)
 Sábado, 12 de dezembro de 2026 · Renovo Church · São Bernardo do Campo, SP
 
 [![CI](https://github.com/luanviccs/conferencia_electus_previa/actions/workflows/ci.yml/badge.svg)](https://github.com/luanviccs/conferencia_electus_previa/actions/workflows/ci.yml)
@@ -290,7 +291,7 @@ flowchart LR
 
 ## 📋 Pendências conhecidas
 
-- [ ] **Domínio definitivo:** quando houver, use URL absoluta em `og:image` (`index.html`) para a prévia aparecer no WhatsApp e no Facebook, e adicione `<link rel="canonical">`.
+- [x] **Domínio definitivo:** `https://www.conferenciaelectus.com.br` (endereço canônico e prévia de compartilhamento em `index.html`).
 - [ ] **Horário de término:** confirmar com a organização (`dates.end`, hoje 23h).
 - [ ] **Licença:** definir a licença do código, se o repositório for público.
 

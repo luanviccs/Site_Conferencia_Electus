@@ -2,6 +2,11 @@
 
 Mudanças relevantes do site, da mais recente para a mais antiga.
 
+## 2026-10-22: domínio oficial
+
+- Domínio `www.conferenciaelectus.com.br` (Registro.br → Vercel); `conferenciaelectus.com.br` redireciona para o `www`
+- Endereço canônico e prévia de compartilhamento com URL absoluta no domínio
+
 ## 2026-10-22: organização, segurança e documentação
 
 - Cabeçalhos de segurança na produção (`vercel.json`) e no `npm run preview`
