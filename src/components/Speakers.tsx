@@ -6,8 +6,8 @@ import TicketButton from "./TicketButton";
 const IG = <svg aria-hidden viewBox="0 0 24 24" className="h-[1.1em] w-[1.1em] flex-none" fill="none" stroke="currentColor" strokeWidth="1.8"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" /></svg>;
 /**
  * Título e texto centralizados no topo; abaixo, as duas atrações lado a lado: foto, nome, descrição curta e o Instagram oficial (discreto,
- * para não competir com o botão de ingressos). Foto horizontal (banda completa) ganha coluna mais larga; a partir de 640px
- * as duas fotos têm a mesma altura. A foto do Pr. Dênio é vertical (retrato), por isso a coluna dele é a estreita.
+ * para não competir com o botão de ingressos). A partir de 640px as duas colunas ficam quase iguais (1.25 : 1; a da banda,
+ * foto horizontal, um pouco mais larga) e as duas fotos têm a mesma altura; as descrições ficam centralizadas sob os nomes.
  */
 export default function Speakers() {
   return (
@@ -20,7 +20,7 @@ export default function Speakers() {
           <p className="lede mx-auto mt-6 max-w-[32ch]">Os convidados confirmados da Conferência Electus {eventData.year}.</p>
           <TicketButton className="btn-primary mt-9 hidden lg:inline-flex" />
         </Reveal>
-        <ul className="mx-auto grid w-full max-w-5xl items-start gap-x-8 gap-y-14 sm:grid-cols-[1.55fr_1fr]">
+        <ul className="mx-auto grid w-full max-w-5xl items-start gap-x-8 gap-y-14 sm:grid-cols-[1.25fr_1fr]">
           {eventData.speakers.map((s, k) => (
             <li key={s.id}>
               <Reveal delay={k * 140}>
@@ -33,9 +33,8 @@ export default function Speakers() {
                   </div>
                   <div className="mt-5 border-t border-paper/25 pt-4 text-center">
                     <h3 className="font-display text-[clamp(2.25rem,1.7rem+1.8vw,3.25rem)] uppercase leading-[.9]">{s.name}</h3>
-                    {/* texto oficial dos cards de divulgação: fonte pixel, justificado como no design; "
-" no texto vira quebra de linha */}
-                    <p className="mt-3 whitespace-pre-line text-justify font-pixel text-[.9375rem] leading-[1.6] text-paper/85 hyphens-auto">{s.description}</p>
+                    {/* texto oficial dos cards de divulgação, fonte pixel em tamanho de leitura confortável, centralizado sob o nome */}
+                    <p className="mt-4 text-center text-pretty font-pixel text-[1.125rem] leading-[1.6] text-paper/90 hyphens-auto sm:text-[1.25rem] lg:text-[1.375rem]">{s.description}</p>
                     {s.instagram.url && (
                       <a href={s.instagram.url} target="_blank" rel="noopener noreferrer" aria-label={`Instagram de ${s.name}, ${s.instagram.handle} (abre em nova aba)`}
                         className="group mt-3 inline-flex min-h-11 items-center gap-2 text-[.9375rem] font-medium text-paper/65 transition-colors hover:text-orange focus-visible:text-orange">
