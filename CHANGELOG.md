@@ -2,6 +2,10 @@
 
 Mudanças relevantes do site, da mais recente para a mais antiga.
 
+## 2026-10-23: ingressos na Sympla
+
+- Link de compra trocado para a Sympla (todos os botões de ingresso e dados para o Google); relatório semanal conta vendas pelos avisos da Sympla
+
 ## 2026-10-23: relatório semanal
 
 - Relatório passa a ser semanal: toda segunda às 08:00, com a semana anterior (segunda a domingo), comparação com a

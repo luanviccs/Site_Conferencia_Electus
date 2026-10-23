@@ -3,7 +3,7 @@
 ## Superfície do site
 
 O site da Conferência Electus é **estático**: não tem servidor próprio, banco de dados, login, formulários, cookies próprios
-nem chaves de API. A compra de ingressos acontece na plataforma externa (e-inscrição), aberta em nova aba.
+nem chaves de API. A compra de ingressos acontece na plataforma externa (Sympla), aberta em nova aba.
 
 ## Cabeçalhos HTTP
 

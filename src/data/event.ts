@@ -2,8 +2,8 @@
  * ÚNICA FONTE DE VERDADE. Edite aqui: datas, horários, local, ingresso, atrações, textos.
  * Tudo que estiver como "[A DEFINIR]" / "URL_A_DEFINIR" é placeholder.
  */
-// Link oficial de compra (e-inscrição), usado por todos os botões de ingresso do site.
-export const TICKET_URL = "https://www.e-inscricao.com/e/w9OD4Z000a8g";
+// Link oficial de compra (Sympla), usado por todos os botões de ingresso do site.
+export const TICKET_URL = "https://www.sympla.com.br/evento/conferencia-electus/3628018";
 
 export const eventData = {
   name: "Conferência Electus",

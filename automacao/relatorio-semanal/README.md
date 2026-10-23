@@ -4,7 +4,7 @@ Toda **segunda-feira às 08:00 (Brasília)**, o GitHub roda [`relatorio.py`](rel
 
 1. lê no **Google Analytics 4** os visitantes, visualizações e cliques nos botões de ingresso da **semana anterior**
    (segunda a domingo), compara com a semana de antes e monta o gráfico dos últimos 28 dias;
-2. conta as **vendas** pelos e-mails de confirmação da e-inscrição que chegam no Gmail;
+2. conta as **vendas** pelos e-mails de confirmação da Sympla que chegam no Gmail;
 3. gera **um slide** (PNG 1920×1080 + PowerPoint) com gráfico, indicadores e a explicação dos números;
 4. envia por **e-mail**, com o slide no corpo e em anexo.
 
@@ -75,8 +75,8 @@ Nada é enviado até estes passos estarem feitos; enquanto isso, a execução se
 1. A conta Google precisa ter a **verificação em duas etapas** ativada.
 2. Em [myaccount.google.com/apppasswords](https://myaccount.google.com/apppasswords), crie uma senha de app chamada
    `Relatório Electus`. Ela tem 16 letras e serve só para este envio; dá para revogar quando quiser.
-3. **Vendas:** use o Gmail que **recebe os avisos de compra da e-inscrição**. Abra um desses e-mails e anote o remetente
-   (ex.: `e-inscricao.com`) e um trecho fixo do assunto (ex.: `Nova inscrição`).
+3. **Vendas:** use o Gmail que **recebe os avisos de venda da Sympla**. Abra um desses e-mails e anote o remetente
+   (ex.: `sympla.com.br`) e um trecho fixo do assunto (o texto que se repete em todo aviso de venda).
 
 </details>
 
@@ -99,7 +99,7 @@ No repositório: **Settings → Secrets and variables → Actions**.
 
 | Nome | Exemplo |
 |---|---|
-| `VENDAS_REMETENTE` | `e-inscricao.com` |
+| `VENDAS_REMETENTE` | `sympla.com.br` |
 | `VENDAS_ASSUNTO` | `Nova inscrição` |
 
 Sem essas duas, o slide mostra "Vendas: não configurado" e o resto funciona normalmente.

@@ -36,7 +36,7 @@ Sábado, 12 de dezembro de 2026 · Cidade Renovo · São Bernardo do Campo, SP
 | **Local** | Cidade Renovo, Estrada dos Casa, 4285, Bairro dos Casa, São Bernardo do Campo, SP (estacionamento gratuito) |
 | **Convidados** | Dunamis Music · Pr. Dênio Lara |
 | **Versículo** | 1 Pedro 1:2: eleitos, santificados, obedientes, purificados |
-| **Ingressos** | [e-inscrição](https://www.e-inscricao.com/e/w9OD4Z000a8g) |
+| **Ingressos** | [Sympla](https://www.sympla.com.br/evento/conferencia-electus/3628018) |
 | **Instagram** | [@electus.sbc](https://instagram.com/electus.sbc) |
 
 > [!TIP]
@@ -109,7 +109,7 @@ Clique em cada item para ver o passo a passo. A referência completa de todos os
 1. Abra [`src/data/event.ts`](src/data/event.ts).
 2. Troque a constante no topo do arquivo:
    ```ts
-   export const TICKET_URL = "https://www.e-inscricao.com/e/w9OD4Z000a8g";
+   export const TICKET_URL = "https://www.sympla.com.br/evento/conferencia-electus/3628018";
    ```
 3. Pronto: **todos** os botões de ingresso (topo, menu, convidados, dúvidas, ingressos, rodapé) usam esse link.
 

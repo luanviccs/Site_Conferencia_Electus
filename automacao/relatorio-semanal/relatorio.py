@@ -7,7 +7,7 @@ dos últimos 28 dias e a explicação dos números, e envia por e-mail.
 
 Fontes de dados
 - Acessos e cliques nos botões de ingresso: Google Analytics 4 (API oficial, conta de serviço).
-- Vendas: e-mails de confirmação da e-inscrição que chegam na caixa do Gmail (contados via IMAP). Opcional.
+- Vendas: e-mails de confirmação da Sympla que chegam na caixa do Gmail (contados via IMAP). Opcional.
 
 Uso
     python relatorio.py                  # dados reais + envio do e-mail (configuração por variáveis de ambiente)
@@ -21,7 +21,7 @@ Variáveis de ambiente (ver README.md desta pasta)
     GMAIL_USER                Gmail que envia o relatório (e onde chegam os e-mails de venda)
     GMAIL_APP_PASSWORD        senha de app do Gmail (não a senha normal)
     RELATORIO_PARA            destinatário(s), separados por vírgula
-    VENDAS_REMETENTE          (opcional) trecho do remetente dos e-mails de venda, ex.: e-inscricao.com
+    VENDAS_REMETENTE          (opcional) trecho do remetente dos e-mails de venda, ex.: sympla.com.br
     VENDAS_ASSUNTO            (opcional) trecho do assunto desses e-mails, ex.: "Nova inscrição"
 """
 from __future__ import annotations
@@ -102,7 +102,7 @@ def dados_demo(fim: date) -> Dados:
     ven = [max(0, int(c * rnd.uniform(.25, .45))) for c in cli]
     return Dados(fim, dias, vis, [int(v * 1.7) for v in vis], [int(v * 1.2) for v in vis], cli, ven,
                  int(sum(vis[-7:]) * .82), int(sum(vis[-14:-7]) * .82),
-                 [("instagram.com", 610), ("(direct)", 340), ("google", 150), ("whatsapp", 95), ("e-inscricao.com", 22)],
+                 [("instagram.com", 610), ("(direct)", 340), ("google", 150), ("whatsapp", 95), ("sympla.com.br", 22)],
                  sum(vis) + 900, sum(cli) + 70, sum(ven) + 25)
 
 
@@ -159,7 +159,7 @@ def dados_ga4(fim: date) -> dict:
 
 
 def vendas_gmail(fim: date) -> tuple[list[int], int] | None:
-    """Conta os e-mails de confirmação de compra (e-inscrição) por dia. None se não estiver configurado."""
+    """Conta os e-mails de confirmação de compra (Sympla) por dia. None se não estiver configurado."""
     remetente = os.environ.get("VENDAS_REMETENTE", "").strip()
     assunto = os.environ.get("VENDAS_ASSUNTO", "").strip()
     if not remetente and not assunto:
@@ -229,7 +229,7 @@ def explicacao(d: Dados) -> list[str]:
                f"{pct(cli, vis)} dos visitantes demonstraram intenção de compra.")
     if d.vendas is not None:
         ven = d.soma(d.vendas)
-        txt.append(f"{ven} vendas confirmadas na e-inscrição: {pct(ven, cli)} de quem clicou concluiu a compra "
+        txt.append(f"{ven} vendas confirmadas na Sympla: {pct(ven, cli)} de quem clicou concluiu a compra "
                    f"({pct(ven, vis)} dos visitantes).")
     ultimos = d.visitantes[-SEMANA:]
     melhor = max(range(SEMANA), key=lambda i: ultimos[i])
@@ -272,7 +272,7 @@ def gerar_slide(d: Dados, destino: Path) -> Path:
         ("Visitantes na semana", f"{d.vis_semana}", f"{variacao(d.vis_semana, d.vis_anterior)} vs. semana anterior", AZUL),
         ("Visualizações", f"{pv}", f"{ses} sessões", AZUL),
         ("Cliques em ingresso", f"{cli}", f"{pct(cli, d.vis_semana)} dos visitantes · {variacao(cli, cli_ant)}", LARANJA),
-        ("Vendas (e-inscrição)", f"{ven}" if ven is not None else "–",
+        ("Vendas (Sympla)", f"{ven}" if ven is not None else "–",
          f"{pct(ven, cli)} dos cliques · {variacao(ven, ven_ant)}" if ven is not None else "não configurado", LARANJA),
     ]
     for k, c in enumerate(cards):
@@ -325,7 +325,7 @@ def gerar_slide(d: Dados, destino: Path) -> Path:
     total_v = "–" if d.total_vendas is None else f"{d.total_vendas}"
     fig.text(.64, .075, f"Desde {INICIO_CAMPANHA.strftime('%d/%m')}:  {d.total_visitantes} visitantes  ·  "
                         f"{d.total_cliques} cliques  ·  {total_v} vendas", color=CINZA, fontsize=14, fontweight="bold")
-    fig.text(.04, .03, "Fontes: Google Analytics 4 (visitas e cliques; só quem aceitou cookies) · e-mails de confirmação da e-inscrição (vendas)",
+    fig.text(.04, .03, "Fontes: Google Analytics 4 (visitas e cliques; só quem aceitou cookies) · e-mails de confirmação da Sympla (vendas)",
              color="#6E6E6E", fontsize=11)
 
     destino.parent.mkdir(parents=True, exist_ok=True)
