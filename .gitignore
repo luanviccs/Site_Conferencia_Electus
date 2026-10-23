@@ -10,3 +10,7 @@ dist/
 .DS_Store
 Thumbs.db
 *.log
+
+# Relatório diário: arquivos gerados localmente
+automacao/relatorio-diario/saida/
+__pycache__/

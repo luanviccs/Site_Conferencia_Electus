@@ -201,6 +201,7 @@ electus/
 │   ├── images/speakers/       # fotos dos convidados
 │   └── media/                 # vídeos de fundo (h = desktop, v = celular) e vídeo oficial
 ├── scripts/                   # geração da fonte pixel e otimização do logo (Python)
+├── automacao/relatorio-diario/ # relatório diário por e-mail (Python + GitHub Actions; fora do site)
 ├── docs/                      # documentação detalhada
 ├── fotos-antigas/             # arquivo: fotos anteriores, fora do site
 └── .github/workflows/ci.yml   # verificação automática a cada envio
@@ -305,6 +306,7 @@ flowchart LR
 | [`docs/ARQUITETURA.md`](docs/ARQUITETURA.md) | Componentes, vídeos de fundo, player, estilos e decisões técnicas |
 | [`docs/MIDIA.md`](docs/MIDIA.md) | Especificações e receitas para vídeos, fotos, logo e fonte |
 | [`SECURITY.md`](SECURITY.md) | Política de segurança e cabeçalhos |
+| [`automacao/relatorio-diario/`](automacao/relatorio-diario/README.md) | Relatório diário de acessos, cliques e vendas por e-mail (configuração passo a passo) |
 | [`CHANGELOG.md`](CHANGELOG.md) | Histórico de mudanças |
 
 <div align="center">

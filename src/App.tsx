@@ -11,6 +11,7 @@ import Schedule from "./components/Schedule";
 import Faq from "./components/Faq";
 import TicketsCTA from "./components/TicketsCTA";
 import Footer from "./components/Footer";
+import ConsentBanner from "./components/ConsentBanner";
 
 export default function App() {
   // Structured data só quando local e ingresso estiverem definidos (nada inventado).
@@ -47,6 +48,7 @@ export default function App() {
         </div>
       </main>
       <Footer />
+      <ConsentBanner />
     </>
   );
 }

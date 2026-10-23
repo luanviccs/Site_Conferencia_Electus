@@ -24,6 +24,7 @@ Definidos em [`vercel.json`](vercel.json) para todas as páginas e aplicados tam
 |---|---|
 | `fonts.googleapis.com`, `fonts.gstatic.com` | Fontes Big Shoulders Display e Instrument Sans |
 | `www.instagram.com` | Script e moldura do Reel oficial, usados só se o vídeo do site não carregar |
+| `www.googletagmanager.com`, `*.google-analytics.com`, `*.analytics.google.com` | Google Analytics 4, carregado só depois que o visitante aceita os cookies |
 
 > [!IMPORTANT]
 > Ao incluir um serviço novo (analytics, mapa embutido, outro vídeo), acrescente a origem na

@@ -2,6 +2,14 @@
 
 Mudanças relevantes do site, da mais recente para a mais antiga.
 
+## 2026-10-22: medição e relatório diário
+
+- Google Analytics 4 com aviso de cookies (LGPD): só carrega após "Aceitar"; ativa ao preencher `analytics.ga4Id`
+- Evento `clique_ingresso` em todos os botões de ingresso (com a seção de origem)
+- Relatório diário por e-mail (`automacao/relatorio-diario/`, GitHub Actions às 08:00): slide PNG + PowerPoint com
+  visitantes, cliques, vendas (e-mails da e-inscrição), conversões e gráfico de 14 dias
+- Content-Security-Policy liberando só os endereços do Google Analytics; `.vercelignore` tira pastas que não são do site da publicação
+
 ## 2026-10-22: textos do tema e local
 
 - Novos textos de "A conferência" (Quem somos · O que nos desperta · Por que despertar) e de "Por que Electus?"

@@ -25,6 +25,9 @@ export const eventData = {
   church: { name: "Cidade Renovo", city: "São Bernardo do Campo, SP",
     address: "Estrada dos Casa, 4285 - Bairro dos Casa, São Bernardo do Campo - SP, 09840-000" },
   instagram: { handle: "@electus.sbc", url: "https://instagram.com/electus.sbc" },
+  // Google Analytics 4: ID de medição da propriedade (ex.: "G-ABC123XYZ"). Vazio = sem Analytics e sem aviso de cookies.
+  // Os números alimentam o relatório diário (automacao/relatorio-diario/).
+  analytics: { ga4Id: "" },
   // Vídeo oficial de divulgação, em destaque logo abaixo do logo no topo, tocando no próprio site (player do site).
   // Arquivos em public/media/ (horizontal 16:9, 2min19s, com narração e legendas): src = 720p (telas a partir de 768px),
   // srcMobile = 540p (celulares), poster = quadro final com a arte "Conferência Electus 2026". Se o arquivo faltar, o site
