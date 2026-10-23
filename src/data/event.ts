@@ -27,7 +27,7 @@ export const eventData = {
   instagram: { handle: "@electus.sbc", url: "https://instagram.com/electus.sbc" },
   // Google Analytics 4: ID de medição da propriedade (ex.: "G-ABC123XYZ"). Vazio = sem Analytics e sem aviso de cookies.
   // Os números alimentam o relatório diário (automacao/relatorio-diario/).
-  analytics: { ga4Id: "" },
+  analytics: { ga4Id: "G-1EC9XESMYL" },
   // Vídeo oficial de divulgação, em destaque logo abaixo do logo no topo, tocando no próprio site (player do site).
   // Arquivos em public/media/ (horizontal 16:9, 2min19s, com narração e legendas): src = 720p (telas a partir de 768px),
   // srcMobile = 540p (celulares), poster = quadro final com a arte "Conferência Electus 2026". Se o arquivo faltar, o site
