@@ -4,6 +4,7 @@ Mudanças relevantes do site, da mais recente para a mais antiga.
 
 ## 2026-10-23: ingressos na Sympla
 
+- Aviso de cookies com mensagem padrão ("Utilizamos cookies para melhorar sua experiência de navegação…")
 - Link de compra trocado para a Sympla (todos os botões de ingresso e dados para o Google); relatório semanal conta vendas pelos avisos da Sympla
 
 ## 2026-10-23: relatório semanal
