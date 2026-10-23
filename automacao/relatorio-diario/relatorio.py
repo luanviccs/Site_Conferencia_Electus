@@ -203,9 +203,16 @@ def explicacao(d: Dados) -> list[str]:
         ven = d.vendas[i]
         txt.append(f"{ven} vendas confirmadas na e-inscrição: {pct(ven, cli)} de quem clicou concluiu a compra "
                    f"({pct(ven, vis)} dos visitantes).")
+    if not any(d.visitantes) and not any(d.cliques):
+        txt.append("Ainda sem dados processados: o Google Analytics leva de 24 a 48 horas para liberar os números "
+                   "de uma propriedade nova. Os próximos relatórios já virão preenchidos.")
+        return txt
     media7 = sum(d.visitantes[-7:]) / 7
-    tendencia = "acima" if vis >= media7 else "abaixo"
-    txt.append(f"O dia ficou {tendencia} da média dos últimos 7 dias ({media7:.0f} visitantes/dia).")
+    if abs(vis - media7) < .5:
+        txt.append(f"O dia ficou na média dos últimos 7 dias ({media7:.0f} visitantes/dia).")
+    else:
+        tendencia = "acima" if vis > media7 else "abaixo"
+        txt.append(f"O dia ficou {tendencia} da média dos últimos 7 dias ({media7:.0f} visitantes/dia).")
     if d.fontes:
         f, s = d.fontes[0]
         nome = {"(direct)": "acesso direto", "(not set)": "origem não identificada"}.get(f, f)
