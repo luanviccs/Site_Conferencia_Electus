@@ -2,6 +2,11 @@
 
 Mudanças relevantes do site, da mais recente para a mais antiga.
 
+## 2026-10-23: relatório semanal
+
+- Relatório passa a ser semanal: toda segunda às 08:00, com a semana anterior (segunda a domingo), comparação com a
+  semana de antes, melhor dia da semana e gráfico de 28 dias (`automacao/relatorio-semanal/`)
+
 ## 2026-10-22: medição e relatório diário
 
 - Google Analytics 4 com aviso de cookies (LGPD): só carrega após "Aceitar"; ativa ao preencher `analytics.ga4Id`

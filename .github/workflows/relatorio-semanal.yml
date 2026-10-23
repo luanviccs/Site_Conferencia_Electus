@@ -1,0 +1,59 @@
+# Relatório semanal da Conferência Electus: toda segunda-feira às 08:00 (Brasília) gera o slide com acessos, cliques em
+# ingresso e vendas da semana anterior (segunda a domingo) e envia por e-mail.
+# Também pode ser disparado à mão em Actions → "Relatório semanal" → Run workflow.
+# Código em automacao/relatorio-semanal/ (fora do site: não entra no build nem na publicação da Vercel).
+name: Relatório semanal
+
+on:
+  schedule:
+    - cron: "0 11 * * 1"   # segunda-feira, 11:00 UTC = 08:00 em Brasília
+  workflow_dispatch:
+    inputs:
+      fim:
+        description: "Último dia da semana do relatório (AAAA-MM-DD). Vazio = ontem."
+        required: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: relatorio-semanal
+  cancel-in-progress: false
+
+jobs:
+  relatorio:
+    name: Gerar e enviar relatório
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: automacao/relatorio-semanal
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: automacao/relatorio-semanal
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: automacao/relatorio-semanal/requirements.txt
+      - run: pip install -r requirements.txt
+      - name: Gerar e enviar
+        env:
+          GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
+          GA4_CREDENTIALS_JSON: ${{ secrets.GA4_CREDENTIALS_JSON }}
+          GMAIL_USER: ${{ secrets.GMAIL_USER }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          RELATORIO_PARA: ${{ secrets.RELATORIO_PARA }}
+          VENDAS_REMETENTE: ${{ vars.VENDAS_REMETENTE }}
+          VENDAS_ASSUNTO: ${{ vars.VENDAS_ASSUNTO }}
+          FIM: ${{ inputs.fim }}
+        run: python relatorio.py ${FIM:+--fim "$FIM"}
+      - name: Guardar o slide (30 dias)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: relatorio-semanal-electus
+          path: automacao/relatorio-semanal/saida/
+          if-no-files-found: ignore
+          retention-days: 30

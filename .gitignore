@@ -11,6 +11,6 @@ dist/
 Thumbs.db
 *.log
 
-# Relatório diário: arquivos gerados localmente
-automacao/relatorio-diario/saida/
+# Relatório semanal: arquivos gerados localmente
+automacao/relatorio-semanal/saida/
 __pycache__/

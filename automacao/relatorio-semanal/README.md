@@ -1,8 +1,9 @@
-# 📊 Relatório diário da Conferência Electus
+# 📊 Relatório semanal da Conferência Electus
 
-Todo dia às **08:00 (Brasília)**, o GitHub roda [`relatorio.py`](relatorio.py) na nuvem, mesmo com o computador desligado:
+Toda **segunda-feira às 08:00 (Brasília)**, o GitHub roda [`relatorio.py`](relatorio.py) na nuvem, mesmo com o computador desligado:
 
-1. lê no **Google Analytics 4** os visitantes, visualizações e cliques nos botões de ingresso do dia anterior (e dos últimos 14 dias);
+1. lê no **Google Analytics 4** os visitantes, visualizações e cliques nos botões de ingresso da **semana anterior**
+   (segunda a domingo), compara com a semana de antes e monta o gráfico dos últimos 28 dias;
 2. conta as **vendas** pelos e-mails de confirmação da e-inscrição que chegam no Gmail;
 3. gera **um slide** (PNG 1920×1080 + PowerPoint) com gráfico, indicadores e a explicação dos números;
 4. envia por **e-mail**, com o slide no corpo e em anexo.
@@ -11,7 +12,7 @@ Todo dia às **08:00 (Brasília)**, o GitHub roda [`relatorio.py`](relatorio.py)
 
 ```mermaid
 flowchart LR
-    cron["⏰ GitHub Actions<br/>todo dia 08:00"] --> py["relatorio.py"]
+    cron["⏰ GitHub Actions<br/>segunda 08:00"] --> py["relatorio.py"]
     ga["Google Analytics 4<br/>visitas · cliques"] --> py
     gm["Gmail (IMAP)<br/>e-mails de venda"] --> py
     py --> png["Slide PNG + .pptx"]
@@ -24,7 +25,7 @@ Exemplo do slide (**dados fictícios** de demonstração, gerados com `python re
 
 | Indicador | O que significa |
 |---|---|
-| **Visitantes** | Pessoas diferentes que abriram o site no dia (variação contra o dia anterior) |
+| **Visitantes na semana** | Pessoas diferentes que abriram o site na semana (variação contra a semana anterior) |
 | **Visualizações / sessões** | Páginas vistas e visitas (uma pessoa pode visitar mais de uma vez) |
 | **Cliques em ingresso** | Cliques em qualquer botão "Garanta seu ingresso" (intenção de compra); % sobre visitantes |
 | **Vendas** | E-mails de confirmação de compra recebidos; % sobre cliques (quem clicou e comprou) |
@@ -37,7 +38,7 @@ Exemplo do slide (**dados fictícios** de demonstração, gerados com `python re
 
 ## ⚙️ Configuração (uma vez só, ~20 minutos)
 
-Nada roda até estes passos estarem feitos; enquanto isso, a execução diária só avisa o que falta, sem erro.
+Nada é enviado até estes passos estarem feitos; enquanto isso, a execução semanal só avisa o que falta, sem erro.
 
 <details>
 <summary><b>1. Criar o Google Analytics 4 e ligar no site</b></summary>
@@ -108,8 +109,8 @@ Sem essas duas, o slide mostra "Vendas: não configurado" e o resto funciona nor
 <details>
 <summary><b>5. Testar</b></summary>
 
-Em **Actions → Relatório diário → Run workflow** (pode informar um dia, ex.: `2026-10-21`). Em 1–2 minutos o e-mail chega;
-o slide também fica para download na própria execução (aba *Artifacts*, por 14 dias).
+Em **Actions → Relatório semanal → Run workflow** (pode informar o último dia da semana, ex.: `2026-10-25`). Em 1–2 minutos o e-mail chega;
+o slide também fica para download na própria execução (aba *Artifacts*, por 30 dias).
 
 </details>
 
@@ -126,7 +127,7 @@ python relatorio.py --demo
 ```
 
 Gera o slide com dados de exemplo em `saida/` (pasta ignorada pelo git). Com as variáveis de ambiente da tabela acima
-definidas, `python relatorio.py --sem-email` gera com os dados reais sem enviar, e `python relatorio.py` envia.
+definidas, `python relatorio.py --sem-email` gera com os dados reais da semana que terminou ontem, sem enviar (`--fim AAAA-MM-DD` escolhe outra semana), e `python relatorio.py` envia.
 
 ## 🔧 Ajustes comuns
 
@@ -134,8 +135,8 @@ definidas, `python relatorio.py --sem-email` gera com os dados reais sem enviar,
 |---|---|
 | Data do evento (contagem "dias para o evento") | `EVENTO` |
 | Início da contagem acumulada | `INICIO_CAMPANHA` |
-| Quantos dias no gráfico | `DIAS_GRAFICO` |
-| Horário do envio | `cron` em [`.github/workflows/relatorio-diario.yml`](../../.github/workflows/relatorio-diario.yml) (UTC: 11:00 = 08:00 em Brasília) |
+| Quantos dias no gráfico | `DIAS_GRAFICO` (padrão: 28) |
+| Dia e horário do envio | `cron` em [`.github/workflows/relatorio-semanal.yml`](../../.github/workflows/relatorio-semanal.yml) (`0 11 * * 1` = segunda, 08:00 em Brasília) |
 | Nome do evento de clique | `EVENTO_CLIQUE` (precisa bater com `src/components/TicketButton.tsx`) |
 
 ## 🔒 Segurança
