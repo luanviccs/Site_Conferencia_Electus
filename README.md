@@ -8,7 +8,7 @@
 [www.conferenciaelectus.com.br](https://www.conferenciaelectus.com.br)
 Sábado, 12 de dezembro de 2026 · Cidade Renovo · São Bernardo do Campo, SP
 
-[![CI](https://github.com/luanviccs/conferencia_electus_previa/actions/workflows/ci.yml/badge.svg)](https://github.com/luanviccs/conferencia_electus_previa/actions/workflows/ci.yml)
+[![CI](https://github.com/luanviccs/Site_Conferencia_Electus/actions/workflows/ci.yml/badge.svg)](https://github.com/luanviccs/Site_Conferencia_Electus/actions/workflows/ci.yml)
 ![React 18](https://img.shields.io/badge/React-18-18C1FF?logo=react&logoColor=white&labelColor=000)
 ![Vite 7](https://img.shields.io/badge/Vite-7-FFA800?logo=vite&logoColor=white&labelColor=000)
 ![TypeScript strict](https://img.shields.io/badge/TypeScript-strict-18C1FF?logo=typescript&logoColor=white&labelColor=000)
